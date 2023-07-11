@@ -40,8 +40,12 @@ Route::middleware([
 Route::resource('attendancesheet', AttendanceSheetController::class)->except([
     'create', 'store' // Exclude the create and store actions
 ]);
+Route::get('/export-attendees', [AttendanceSheetController::class, 'exportAttendees'])->name('export.attendees');
 
 Route::get('attendancesheet/{program}', [AttendancesheetController::class, 'show'])->name('attendancesheet.show');
 Route::get('attendancesheet/register/{program}', [AttendanceSheetController::class, 'register'])->name('attendancesheet.register');
 Route::post('/attendancesheet/{program}/store', [AttendanceSheetController::class, 'store'])
 ->name('attendancesheet.store');
+
+Route::get('/programs/{programs}/export-csv', [ProgramsController::class, 'exportCsv'])->name('programs.exportCsv');
+

@@ -3,26 +3,43 @@
 namespace App\Exports;
 
 use App\Models\Program;
-use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Concerns\FromQuery;
+use App\Models\Attendee;
+use Illuminate\Support\Collection;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class AttendeesCsvExport implements FromQuery, WithHeadings, ShouldAutoSize
+class AttendeesCsvExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
-    public function query()
+    private $program;
+
+    public function __construct(Program $program)
     {
-        // Build your query to retrieve the attendees data
-        return Program::first()->attendees();
+        $this->program = $program;
+    }
+
+    public function collection()
+    {
+        // Retrieve the attendees data based on the program
+        $attendees = $this->program->attendees;
+
+        // Map the attendees data to the desired collection
+        return collect($attendees)->map(function ($attendee) {
+            return [
+                'first name' => $attendee->first_name,
+                'last name' => $attendee->last_name,
+                'email' => $attendee->email,
+                // Add more fields as needed
+            ];
+        });
     }
 
     public function headings(): array
     {
-        // Return the column headings for the CSV file
         return [
-            'First Name',
-            'Last Name',
-            'Email',
+            'first name',
+            'last name',
+            'email',
             // Add more headings as needed
         ];
     }

@@ -82,7 +82,7 @@
 
 <script setup>
 import { computed, ref, watch } from "vue";
-import { Link } from "@inertiajs/inertia-vue3";
+import { Link } from "@inertiajs/vue3";
 import qrcode from "qrcode";
 
 const props = defineProps({

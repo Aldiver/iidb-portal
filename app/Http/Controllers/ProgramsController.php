@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Program;
 use Illuminate\Http\Request;
-use App\Exports\AttendeesCsvExport;
-// use App\Exports\AttendeesExcelExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\AttendeesCsvExport;
+
+
+
+// use App\Exports\AttendeesExcelExport;
 
 class ProgramsController extends Controller
 {
@@ -77,10 +80,10 @@ class ProgramsController extends Controller
 
     public function exportCsv(Program $program)
     {
-        $attendees = $program->attendees;
-        $export = new AttendeesCsvExport($attendees);
+        $exportFile = new AttendeesCsvExport($program);
+        
+        return Excel::download($exportFile, 'attendees.csv');
 
-        return Excel::download($export, 'attendees.csv');
     }
 
     public function exportExcel(Program $program)
@@ -88,6 +91,6 @@ class ProgramsController extends Controller
         $attendees = $program->attendees;
         $export = new AttendeesExcelExport($attendees);
 
-        return Excel::download($export, 'attendees.xlsx');
+        return Excel::store($export, 'attendees.xlsx');
     }
 }
