@@ -36,8 +36,7 @@ class ProgramsController extends Controller
 
         Program::create($validatedData);
 
-        return redirect()->route('programs.index')
-            ->with('success', 'Program created successfully.');
+        return Inertia::location(route('programs.index'));
     }
 
     public function show(Program $program)
