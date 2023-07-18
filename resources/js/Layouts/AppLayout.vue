@@ -74,7 +74,7 @@ const logout = () => {
                                 >
                                     Programs
                                 </NavLink>
-                            </div>
+                            </div>                           
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -330,12 +330,7 @@ const logout = () => {
                                         !showingNavigationDropdown
                                 "
                             >
-                                <svg
-                                    class="h-6 w-6"
-                                    stroke="currentColor"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                >
+                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                                     <path
                                         :class="{
                                             hidden: showingNavigationDropdown,
@@ -373,10 +368,7 @@ const logout = () => {
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
-                        >
+                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
                     </div>

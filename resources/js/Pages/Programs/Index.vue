@@ -109,7 +109,7 @@ const formatDate = (dateString) => {
                                     {{ program.venue }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">
-                                    <!-- <Link
+                                     <Link
                                         :href="
                                             route(
                                                 'attendancesheet.register',
@@ -119,7 +119,7 @@ const formatDate = (dateString) => {
                                         class="mr-1"
                                     >
                                         Register
-                                    </Link> -->
+                                    </Link>
                                     <span
                                         class="mdi mdi-qrcode cursor-pointer text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
                                         @click="
