@@ -7,12 +7,14 @@ import Banner from "@/Components/Banner.vue";
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
 import NavLink from "@/Components/NavLink.vue";
+import ANavLink from "@/Components/ANavLink.vue";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import Navbar from '@/Components/Navbar.vue';
 import SlidingBanner from '@/Components/SlidingBanner.vue';
 import MVM from '@/Components/MVM.vue';
 import Blog from '@/Components/Blog.vue';
 import Aboutus from '@/Components/Aboutus.vue';
+import Contactus from '@/Components/Contactus.vue';
 
 
 
@@ -37,63 +39,69 @@ defineProps({
       </div>
       <!-- Navigation Links -->
       <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-        <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-          Home
-        </NavLink>
+        <ANavLink href="#home">Home</ANavLink>
       </div>
       <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-        <NavLink :href="route('programs.index')" :active="route().current('programs.index')">
-          Mission & Vision
-        </NavLink>
+        <ANavLink href="#blog">Blog</ANavLink>
       </div>
       <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-        <NavLink :href="route('programs.index')" :active="route().current('programs.index')">
-          Contributors
-        </NavLink>
+        <ANavLink href="#about-us">About Us</ANavLink>
       </div>
       <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-        <NavLink :href="route('programs.index')" :active="route().current('programs.index')">
-          About Us
-        </NavLink>
+        <ANavLink href="#mission-vision">Mission & Vision</ANavLink>
       </div>
       <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-        <NavLink :href="route('programs.index')" :active="route().current('programs.index')">
-          Contact Us
-        </NavLink>
+        <ANavLink href="#contributors">Contributors</ANavLink>
+      </div>
+
+      <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <ANavLink href="#contact-us">Contact Us</ANavLink>
+      </div>
+
+      <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+        <ANavLink href="#testimonials">Testimonials</ANavLink>
       </div>
     </div>
     <!-- Login Button -->
-    <div class="flex items-center">
-      <a :href="route('login')" class="py-2 px-4 bg-white hover:bg-gray-200 text-gray-800 rounded-md">
-        Login
-      </a>
-    </div>
+
+    <div class="hidden space-x-8 mr-10 sm:-my-px sm:ml-10 sm:flex">
+                                <NavLink :href="route('login')" :active="route().current('login')">
+                                    Login
+                                </NavLink>
+                            </div>
   </div>
 </nav>
 
-
-    <SlidingBanner />
-
-    <Aboutus />
-    <div>
-        <MVM />
-
-    </div>
-    <div class="pb-16">
+    <section id="home"><SlidingBanner /></section>
+    <section id="blog" class="mb-16">
+            <div class="container flex justify-center mx-auto pt-16">
+            <div>
+                <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">LATEST NEWS IN DICT IX BASULTA</h1>
+            </div>
+        </div>
+            <div class="blog-container">
+                <blog/>
+            </div>
+    </section>
+    <section id="about-us"><Aboutus /></section>
+    <section id="mission-vision"><MVM /></section>
+    <section id="contributors">
+    <div class="pb-16 bg-zinc-300">
         <div class="container flex justify-center mx-auto pt-16">
             <div>
                 <p class="text-gray-500 text-lg text-center font-normal pb-3">BUILDING TEAM</p>
                 <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">The Talented People Behind the Scenes of the Organization</h1>
             </div>
         </div>
-        <div class="w-full bg-gray-100 px-10 pt-10">
+        <div class="w-full px-10 pt-10">
             <div class="container mx-auto">
                 <div class="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
-                    <div class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 transform hover:scale-105 transition-transform duration-300">
+                    <div class="grid grid-cols-3 gap-32 p-4">
+                    <div class="transform hover:scale-105 transition-transform duration-300">
                         <div class="h-300 rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
-                                    <img src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t39.30808-6/353654835_1895444907515239_4678820893078711662_n.jpg?_nc_cat=101&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEWhAuVdStiqPoVY54Yj3Rkzbd-GLPewnLNt34Ys97Ccvum_goK97z59CMdS5Tr9pXlzLD3Mz4g_8HlLqQenWvi&_nc_ohc=JE4pdOEb7LsAX_-FDOD&_nc_ht=scontent.fmnl9-2.fna&oh=00_AfAU3u-nYh-FK065MxUWJ7jDj2F1H2mxZmqYk3E3Sr4v2A&oe=64B5DE57" alt="" class="rounded-full object-cover h-full w-full shadow-md" />
+                                    <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/353654835_1895444907515239_4678820893078711662_n.jpg?_nc_cat=101&cb=99be929b-3346023f&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEWhAuVdStiqPoVY54Yj3Rkzbd-GLPewnLNt34Ys97Ccvum_goK97z59CMdS5Tr9pXlzLD3Mz4g_8HlLqQenWvi&_nc_ohc=YrZn0NOt_40AX9mK5FW&_nc_ht=scontent.fdvo2-1.fna&oh=00_AfBu9bQA0L7zlenESSCCHcjG8jDlcD1NSQHsIFyh7o7B_w&oe=64BDC757" alt="" class="rounded-full object-cover h-full w-full shadow-md" />
                                 </div>
                             </div>  
                             <div class="px-6 mt-16">
@@ -128,7 +136,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 transform hover:scale-105 transition-transform duration-300">
+                    <div class="transform hover:scale-105 transition-transform duration-300">
                         <div class="h-300 rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -167,17 +175,17 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 transform hover:scale-105 transition-transform duration-300">
+                    <div class="transform hover:scale-105 transition-transform duration-300">
                         <div class="h-300 rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
-                                    <img src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t39.30808-1/318895997_859507895171683_1003256958724474812_n.jpg?stp=dst-jpg_s320x320&_nc_cat=102&cb=99be929b-3346023f&ccb=1-7&_nc_sid=7206a8&_nc_eui2=AeHJmZILFmPOY-wM6Exr8K6hVcjhPbPEpC1VyOE9s8SkLeqVry8l2n1_BLvGfDbqiNbDbsg5tsaHCi8Jv8mZvUvE&_nc_ohc=MO_ugrObhV0AX-nrJHd&_nc_ht=scontent.fmnl9-3.fna&oh=00_AfBnxvuPakbhrU1SJIcmivrcI6OwyxWpMN_yj2CS8ovOmg&oe=64B52BE9" alt="" class="rounded-full object-cover h-full w-full shadow-md" />
+                                    <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/283650932_722723818850092_5118523132048873966_n.jpg?_nc_cat=106&cb=99be929b-3346023f&ccb=1-7&_nc_sid=174925&_nc_eui2=AeE_BItdY9Ow81WaBBrwfSb5tO9MtdsEWoO070y12wRag0mzLUkn1ExHp0vlzYlMfKM3C6TWfpkv1ASZ5-lT3Tvi&_nc_ohc=DBWWt72LSzQAX94CXTZ&_nc_ht=scontent.fdvo2-2.fna&oh=00_AfDKzUphgkKXSY5ThTry3hPPv0RBeNRkjce24PbU2GeR9Q&oe=64BD7531" alt="" class="rounded-full object-cover h-full w-full shadow-md" />
                                 </div>
                             </div>
                             <div class="px-6 mt-16">
                                 <div class="font-bold text-3xl text-center pb-1">Gee Mercado</div>
                                 <p class="text-gray-800 text-sm text-center">Manager Development</p>
-                                <p class="text-center text-gray-600 text-base pt-3 font-normal">Our services encompass the assessment and repair of property damage caused by water, fire, smoke, or mold. We can also be a part of the restoration.</p>
+                                <p class="text-center text-gray-600 text-base pt-3 font-normal">Our services encompass the assessment and repair of property damage caused by water, fire, smoke, or mold. We can also be a part of the restoration. Thank you!</p>
                                 <div class="w-full flex justify-center pt-5 pb-5">
                                     <a href="javascript:void(0)" class="mx-5">
                                         <div>
@@ -206,7 +214,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 transform hover:scale-105 transition-transform duration-300">
+                    <div class="transform hover:scale-105 transition-transform duration-300">
                         <div class="rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -245,7 +253,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 transform hover:scale-105 transition-transform duration-300">
+                    <div class="transform hover:scale-105 transition-transform duration-300">
                         <div class="rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -284,7 +292,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="xl:w-1/3 sm:w-3/4 md:w-2/5 relative mt-16 mb-32 sm:mb-24 xl:max-w-sm lg:w-2/5 transform hover:scale-105 transition-transform duration-300">
+                    <div class="transform hover:scale-105 transition-transform duration-300">
                         <div class="rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -294,7 +302,7 @@ defineProps({
                             <div class="px-6 mt-16">
                                 <div class="font-bold text-3xl text-center pb-1">Maynard Calingacion</div>
                                 <p class="text-gray-800 text-sm text-center">UX Designer</p>
-                                <p class="text-center text-gray-600 text-base pt-3 font-normal">A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.</p>
+                                <p class="text-center text-gray-600 text-base pt-3 font-normal">A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it. Thank you!</p>
                                 <div class="w-full flex justify-center pt-5 pb-5">
                                     <a href="javascript:void(0)" class="mx-5">
                                         <div>
@@ -322,25 +330,18 @@ defineProps({
                                 </div>
                             </div>
                         </div>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <div>
-            <div class="container flex justify-center mx-auto pt-16">
-            <div>
-                <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">LATEST NEWS IN DICT IX BASULTA</h1>
-            </div>
-        </div>
-            <div class="blog-container">
-                <blog/>
-            </div>
-        </div>
-        <br><br><br>
+</section>
+
+    <section id="contact-us" class="container my-24 mx-auto md:px-6"><Contactus/></section>
             <!--- Testimonials 1-->
-    <section>
-        <h2 class="text-2xl leading-6 text-gray-800 text-center px-4">Testimonials</h2>
+    <section id="testimonials" class="bg-zinc-300 pt-20 mt-20">
+        <h2 class="text-2xl leading-6 text-gray-800 text-center px-20">Testimonials</h2>
         <h1 class="lg:text-5xl md:text-4xl text-2xl font-semibold px-4 leading-10 text-gray-800 mt-6 text-center">What our client says</h1>
         <div class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-20 gap-6">
             <div>
@@ -386,7 +387,7 @@ defineProps({
                 </div>
                 <div class="flex flex-col items-center justify-center mt-10">
                     <img src="https://i.ibb.co/ZgF5Zzz/avatar-1.png" alt="profile pictre" class="w-12 h-12" />
-                    <p class="text-base font-semibold leading-4 my-2 text-gray-800">Gee Mercado</p>
+                    <p class="text-base font-semibold leading-4 my-2 text-gray-800">Jose Ramon Mary</p>
                     <p class="text-base leading-4 text-center text-gray-600">Developer</p>
                 </div>
             </div>
@@ -433,7 +434,7 @@ defineProps({
                 </div>
                 <div class="flex flex-col items-center justify-center mt-10">
                     <img src="https://i.ibb.co/8BLjmqz/avatar-2.png" alt="profile pictre" class="w-12 h-12" />
-                    <p class="text-base font-semibold leading-4 my-2 text-gray-800">Joshua De Guzman</p>
+                    <p class="text-base font-semibold leading-4 my-2 text-gray-800">Adam Tagle</p>
                     <p class="text-base leading-4 text-center text-gray-600">Designer</p>
                 </div>
             </div>
@@ -479,8 +480,8 @@ defineProps({
                     </div>
                 </div>
                 <div class="flex flex-col items-center justify-center mt-10">
-                    <img src="https://i.ibb.co/y0KCX7p/avatar-3.png" alt="profile pictre" class="w-24 h-24" />
-                    <p class="text-base font-semibold leading-4 my-2 text-gray-800">Martha</p>
+                    <img src="https://i.ibb.co/y0KCX7p/avatar-3.png" alt="profile pictre" class="w-12 h-12" />
+                    <p class="text-base font-semibold leading-4 my-2 text-gray-800">Frozza Manubag</p>
                     <p class="text-base leading-4 text-center text-gray-600">Support</p>
                 </div>
             </div>
@@ -496,6 +497,25 @@ defineProps({
             </div>
         </footer>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    scrollToSection(event) {
+      event.preventDefault();
+      const targetId = event.target.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        // Using native JavaScript 'scrollIntoView' method
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  },
+};
+</script>
+
 
 <style scoped>
 .sticky {

@@ -12,28 +12,28 @@
   
   
   <script>
-  import bannerImage1 from '../../images/banner1.jpg';
-  import bannerImage2 from '../../images/banner2.jpg';
-  import bannerImage3 from '../../images/banner3.jpg';
+  import bannerImage1 from '../../images/blog1.jpg';
+  import bannerImage2 from '../../images/blog2.jpg';
+  import bannerImage3 from '../../images/blog3.jpg';
   
   export default {
     data() {
       return {
         blogs: [
           {
-            title: 'Blog Title 1',
+            title: 'Basic Digital Literacy Training for PWDS',
             imageUrl: bannerImage1,
-            excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            excerpt: 'This initiative was made possible in partnership with the City Social Welfare and Development Office (CSWDO)  Dipolog Tech4Ed Center and the LGU of Dipolog in celebration of the 𝟰𝟱𝘁𝗵 𝗡𝗮𝘁𝗶𝗼𝗻𝗮𝗹 𝗗𝗶𝘀𝗮𝗯𝗶𝗹𝗶𝘁𝘆 𝗣𝗿𝗲𝘃𝗲𝗻𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗥𝗲𝗵𝗮𝗯𝗶𝗹𝗶𝘁𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 with the theme, “Persons with Disabilities Accessibility and Rights: Towards a Sustainable Future where No One is Left Behind” (“Aksesibilidad at Karapatan ng mga Taong may Kapansanan: Daan Tungo sa Sustenablang Kinabukasan? na Walang Maiiwan”).',
           },
           {
-            title: 'Blog Title 2',
+            title: 'SCALE 2023 is here in Jolo, Sulu!',
             imageUrl: bannerImage2,
-            excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            excerpt: 'Startup Community and Locale Enhancement (SCALE) is DICT’s project offering for the Mapping of the Philippine Startup Ecosystem. It is a collaborative and participatory data-gathering method that explores the current startup initiatives, needs, and availability of resources in a certain location through a guided discussion with a multi-sectoral and well-represented set of participants. Mapping participants can vary from members of the local government units, academe, national government agencies, startup founders, enablers, and other key ecosystem players. ',
           },
           {
-            title: 'Blog Title 3',
+            title: '5th Adobe Community Expert in the Philippines',
             imageUrl: bannerImage3,
-            excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            excerpt: '𝗘𝗻𝗵𝗼𝗿𝗮𝗯𝘂𝗲𝗻𝗮 𝘁𝗼 𝗠𝘀. 𝗖𝗵𝗲𝗶𝘇𝗲𝗿 𝗬𝗻𝗶𝗲𝗴𝗼, Information System Analyst I and Branding Specialist of DICT R9 and BASULTA, on achieving the remarkable milestone of becoming a Certified Adobe Community Expert!',
           },
         ],
       };
