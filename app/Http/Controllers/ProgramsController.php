@@ -93,4 +93,10 @@ class ProgramsController extends Controller
 
         return Excel::store($export, 'attendees.xlsx');
     }
+    public function sendProgramsData()
+    {
+        $programs = Program::latest()->take(3)->get();
+
+        return Inertia::render('Welcome', ['programs' => $programs]);
+    }
 }

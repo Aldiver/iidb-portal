@@ -7,11 +7,15 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
+    
     programs: {
         type: Object,
         default: () => ({}),
+        
     },
+
 });
+
 
 const showAddModal = ref(false);
 const showQRModal = ref(false);

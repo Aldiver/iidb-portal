@@ -15,16 +15,26 @@ import MVM from '@/Components/MVM.vue';
 import Blog from '@/Components/Blog.vue';
 import Aboutus from '@/Components/Aboutus.vue';
 import Contactus from '@/Components/Contactus.vue';
+import Programlist from '@/Components/Programlist.vue';
 
+import { defineProps } from '@inertiajs/inertia-vue3';
 
 
 
 defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
+  canLogin: Boolean,
+  canRegister: Boolean,
+  laravelVersion: String,
+  phpVersion: String,
+  programs: {
+        type: Object,
+        default: () => ({}),
+        
+    },
+
 });
+
+
 </script>
 <template>
 <nav class="sticky bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-lg">
@@ -73,6 +83,14 @@ defineProps({
 </nav>
 
     <section id="home"><SlidingBanner /></section>
+
+    <section id="event">
+    <div class="my-20 mx-20">
+        <h1 class="xl:text-4xl text-3xl text-center my-10 text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">Join on our latest Events!</h1>
+        <Programlist :programs="programs" /> 
+    </div>
+
+    </section>
     <section id="blog" class="mb-16">
             <div class="container flex justify-center mx-auto pt-16">
             <div>
