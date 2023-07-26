@@ -132,7 +132,7 @@ const formatDate = (dateString) => {
                                         :href="
                                             route(
                                                 'attendancesheet.edit',
-                                                attendee
+                                                program
                                             )
                                         "
                                         class="mr-1"
