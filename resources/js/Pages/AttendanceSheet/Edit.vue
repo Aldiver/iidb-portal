@@ -12,6 +12,10 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  attendee: {
+    type: Object,
+    default: () => ({}),
+  },
 });
 
 const form = useForm({
@@ -25,15 +29,22 @@ const form = useForm({
   affiliation: "",
 });
 
-console.log("program props: ", props);
+console.log("attendee id: ", props.attendee.id);
 
 const submit = () => {
-  form.post(route("attendancesheet.update", { program: props.program }), {
-    onSuccess: () => {
-      form.reset();
-    },
-  });
+    form.post(
+        route("attendancesheet.update", {
+            program: props.program.id,
+            attendee: props.attendee.id, // Replace attendeeId with the actual ID of the attendee being edited
+        }),
+        {
+            onSuccess: () => {
+                form.reset();
+            },
+        }
+    );
 };
+
 </script>
 
 <template>

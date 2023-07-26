@@ -1,15 +1,24 @@
 <script setup>
 import { ref, defineProps } from "vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
     program: {
         type: Object,
         default: () => ({}),
     },
+    
 });
 
+const formDelete = useForm({
+
+});
+const deleteProgram = (programId, attendeeId) => {
+    if(confirm("Are you sure you want to delete?")){
+        formDelete.delete(route("attendancesheet.destroy", { program: programId, attendee: attendeeId }));
+    }
+};
 const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     const date = new Date(dateString);
@@ -98,6 +107,11 @@ const formatDate = (dateString) => {
                                     >
                                         Edit
                                     </th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    >
+                                        Delete
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody
@@ -132,13 +146,18 @@ const formatDate = (dateString) => {
                                         :href="
                                             route(
                                                 'attendancesheet.edit',
-                                                program
+                                                { program: program.id, attendee }
                                             )
                                         "
-                                        class="mr-1"
+                                        class="mr-1" 
                                     >
                                         Edit
                                     </Link>                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <button @click="deleteProgram(program.id, attendee.id)">
+                                        Delete
+                                    </button>
+                                </td>
                                 </tr>
                             </tbody>
                         </table>
