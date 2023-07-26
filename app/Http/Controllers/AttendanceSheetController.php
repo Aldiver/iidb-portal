@@ -37,12 +37,13 @@ class AttendanceSheetController extends Controller
             'gender' => 'required',
             'email' => 'nullable|email',
             'contact_number' => 'nullable',
-            'school' => 'required',
+            'affiliation' => 'nullable',
+            'affiliation_name' => 'nullable',
         ];
-        // dd($program);
-        $data = $request->validate($rules);
+        $data = $request->validate($rules); 
 
         $attendee = $program->attendees()->create($data);
+
 
         // Redirect or perform any other action after storing the attendee
 
@@ -53,7 +54,7 @@ class AttendanceSheetController extends Controller
     {
         $program = Program::findOrFail($id);
         $program->load('attendees'); // Eager load the attendees relationship
-
+        
         return Inertia::render('AttendanceSheet/Show', [
             'program' => $program,
         ]);
@@ -70,4 +71,15 @@ class AttendanceSheetController extends Controller
     public function destroy(Program $program)
     {
     }
+
+    public function getTopThreePrograms()
+    {
+        // Fetch the top 3 latest programs from the database
+        $program = Program::all();
+        
+
+        // Pass the programs data to the Welcome.vue component
+        return Inertia::render('Welcome', ['program' => $program]);
+    }
+
 }

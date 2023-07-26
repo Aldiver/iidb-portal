@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from "@inertiajs/vue3";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import { ref } from "vue";
 import ApplicationMark from "@/Components/ApplicationMark.vue";
@@ -17,14 +17,14 @@ import Aboutus from '@/Components/Aboutus.vue';
 import Contactus from '@/Components/Contactus.vue';
 
 
+const { programs } = defineProps(['programs']);
 
+const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, options);
+};
 
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
-});
 </script>
 <template>
 <nav class="sticky bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-lg">
@@ -73,7 +73,32 @@ defineProps({
 </nav>
 
     <section id="home"><SlidingBanner /></section>
-    <section id="blog" class="mb-16">
+    
+        <h1>ASA ANG AKONG RICE</h1>
+        <div>
+    <h1>Welcome to My Landing Page</h1>
+    <table class="min-w-full divide-y divide-gray-200">
+      <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+        <tr v-for="program in programs" :key="program.id">
+          <td class="px-6 py-4 whitespace-nowrap">
+            <Link
+              :href="route('programs.show', program.id)"
+              class="no-underline hover:underline text-cyan-600 dark:text-cyan-400"
+            >
+              {{ program.name }}
+            </Link>
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            {{ formatDate(program.created_at) }}
+          </td>
+          <td class="px-6 py-4 whitespace-nowrap">
+            {{ program.venue }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+        <section id="blog" class="mb-16">
             <div class="container flex justify-center mx-auto pt-16">
             <div>
                 <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">LATEST NEWS IN DICT IX BASULTA</h1>
@@ -86,7 +111,7 @@ defineProps({
     <section id="about-us"><Aboutus /></section>
     <section id="mission-vision"><MVM /></section>
     <section id="contributors">
-    <div class="pb-16 bg-zinc-300">
+    <div class="pb-16 bg-gray-100">
         <div class="container flex justify-center mx-auto pt-16">
             <div>
                 <p class="text-gray-500 text-lg text-center font-normal pb-3">BUILDING TEAM</p>
@@ -94,10 +119,10 @@ defineProps({
             </div>
         </div>
         <div class="w-full px-10 pt-10">
-            <div class="container mx-auto">
+            <div class="container my-10 mx-auto">
                 <div class="lg:flex md:flex sm:flex items-center xl:justify-between flex-wrap md:justify-around sm:justify-around lg:justify-around">
-                    <div class="grid grid-cols-3 gap-32 p-4">
-                    <div class="transform hover:scale-105 transition-transform duration-300">
+                    <div class="grid grid-cols-3 gap-24 p-4">
+                    <div class="w-200 h-200 transform hover:scale-105 transition-transform duration-300">
                         <div class="h-300 rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -136,7 +161,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-200 h-200 transform hover:scale-105 transition-transform duration-300">
                         <div class="h-300 rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -175,7 +200,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-200 h-200 transform hover:scale-105 transition-transform duration-300">
                         <div class="h-300 rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -185,7 +210,7 @@ defineProps({
                             <div class="px-6 mt-16">
                                 <div class="font-bold text-3xl text-center pb-1">Gee Mercado</div>
                                 <p class="text-gray-800 text-sm text-center">Manager Development</p>
-                                <p class="text-center text-gray-600 text-base pt-3 font-normal">Our services encompass the assessment and repair of property damage caused by water, fire, smoke, or mold. We can also be a part of the restoration. Thank you!</p>
+                                <p class="text-center text-gray-600 text-base pt-3 font-normal">Our services encompass the assessment and repair of property damage caused by water, fire, smoke, or mold. We can also be a part of the restoration too. Thank you!</p>
                                 <div class="w-full flex justify-center pt-5 pb-5">
                                     <a href="javascript:void(0)" class="mx-5">
                                         <div>
@@ -214,7 +239,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-200 h-200 transform hover:scale-105 transition-transform duration-300">
                         <div class="rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -253,7 +278,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-200 h-200 transform hover:scale-105 transition-transform duration-300">
                         <div class="rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -292,7 +317,7 @@ defineProps({
                             </div>
                         </div>
                     </div>
-                    <div class="transform hover:scale-105 transition-transform duration-300">
+                    <div class="w-200 h-200 transform hover:scale-105 transition-transform duration-300">
                         <div class="rounded overflow-hidden shadow-md bg-white">
                             <div class="absolute -mt-20 w-full flex justify-center">
                                 <div class="h-32 w-32">
@@ -300,9 +325,9 @@ defineProps({
                                 </div>
                             </div>
                             <div class="px-6 mt-16">
-                                <div class="font-bold text-3xl text-center pb-1">Maynard Calingacion</div>
+                                <div class="font-bold text-3xl text-center pb-1">M. Calingacion</div>
                                 <p class="text-gray-800 text-sm text-center">UX Designer</p>
-                                <p class="text-center text-gray-600 text-base pt-3 font-normal">A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it. Thank you!</p>
+                                <p class="text-center text-gray-600 text-base pt-3 font-normal">A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.</p>
                                 <div class="w-full flex justify-center pt-5 pb-5">
                                     <a href="javascript:void(0)" class="mx-5">
                                         <div>
@@ -340,7 +365,7 @@ defineProps({
 
     <section id="contact-us" class="container my-24 mx-auto md:px-6"><Contactus/></section>
             <!--- Testimonials 1-->
-    <section id="testimonials" class="bg-zinc-300 pt-20 mt-20">
+    <section id="testimonials" class="bg-gray-100 pt-20 mt-20">
         <h2 class="text-2xl leading-6 text-gray-800 text-center px-20">Testimonials</h2>
         <h1 class="lg:text-5xl md:text-4xl text-2xl font-semibold px-4 leading-10 text-gray-800 mt-6 text-center">What our client says</h1>
         <div class="container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:px-20 px-10 py-20 gap-6">

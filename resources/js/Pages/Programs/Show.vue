@@ -71,7 +71,12 @@ const formatDate = (dateString) => {
                                     <th
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
                                     >
-                                        School
+                                        Affiliation
+                                    </th>
+                                    <th
+                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    >
+                                        Affiliation Name
                                     </th>
                                     <th
                                         class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
@@ -103,7 +108,10 @@ const formatDate = (dateString) => {
                                         {{ attendee.middle_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        {{ attendee.school }}
+                                        {{ attendee.affiliation }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        {{ attendee.affiliation_name }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         {{ attendee.gender }}

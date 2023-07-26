@@ -18,7 +18,10 @@ return new class () extends Migration {
             $table->string('gender');
             $table->string('email')->nullable();
             $table->string('contact_number')->nullable();
-            $table->string('school');
+            $table->string('affiliation_name')->nullable();
+            $table->string('affiliation')->nullable();
+            
+
             $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
             $table->timestamps();
         });

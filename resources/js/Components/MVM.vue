@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 py-16">
+  <div class="py-16">
     
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Our Vision & Mission</h1>

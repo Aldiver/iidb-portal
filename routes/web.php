@@ -48,4 +48,5 @@ Route::post('/attendancesheet/{program}/store', [AttendanceSheetController::clas
 ->name('attendancesheet.store');
 
 Route::get('/programs/{programs}/export-csv', [ProgramsController::class, 'exportCsv'])->name('programs.exportCsv');
+Route::get('/', [AttendanceSheetController::class, 'getTopThreePrograms']);
 

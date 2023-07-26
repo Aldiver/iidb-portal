@@ -4,7 +4,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import CreateModal from "./CreateModal.vue";
 import QRModal from "./QRModal.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
     programs: {
@@ -16,6 +16,15 @@ const props = defineProps({
 const showAddModal = ref(false);
 const showQRModal = ref(false);
 const currentProgramId = ref(0);
+
+const formDelete = useForm({
+
+});
+const deleteProgram = (id) => {
+    if(confirm("Are you sure you want to delete?")){
+        formDelete.delete(route("programs.destroy=", id)) 
+    }
+};
 
 const saveProgram = (program) => {
     // Logic to save the program to the database
@@ -38,7 +47,7 @@ const formatDate = (dateString) => {
             <h2
                 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
             >
-                Hello World
+                Events
             </h2>
         </template>
 

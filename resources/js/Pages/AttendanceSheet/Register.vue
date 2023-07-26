@@ -20,7 +20,8 @@ const form = useForm({
     gender: "",
     email: "",
     contact_number: "",
-    school: "",
+    affiliation_name: "",
+    affiliation: "",
 });
 
 const submit = () => {
@@ -41,6 +42,9 @@ const submit = () => {
         </template>
 
         <h1 class="text-2xl font-bold mb-4">Attendee Registration</h1>
+
+        <h1 class="text-2xl font-bold mb-4">Event: {{ program.name }}</h1>
+
 
         <form @submit.prevent="submit">
             <div>
@@ -83,17 +87,19 @@ const submit = () => {
 
             <div>
                 <InputLabel for="gender" value="Gender" />
-                <TextInput
-                    id="gender"
-                    v-model="form.gender"
-                    required
-                    autocomplete="sex"
-                    type="text"
-                    class="mt-1 block w-full"
-                />
-                <InputError class="mt-2" :message="form.errors.gender" />
+                <select
+                v-model="form.gender"
+                id="gender"
+                class="mt-1 block w-full border border-gray-300 rounded-md bg-white px-3 py-2 pr-10 focus:outline-none focus:ring focus:border-blue-300"
+                required
+                >
+                <option value="" disabled>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Prefer not to say</option>
+                </select>
+                <div class="mt-2" v-if="form.errors.gender">{{ form.errors.gender }}</div>
             </div>
-
             <div>
                 <InputLabel for="email" value="Email Address" />
                 <TextInput
@@ -120,18 +126,31 @@ const submit = () => {
                     :message="form.errors.contact_number"
                 />
             </div>
-
             <div>
-                <InputLabel for="school" value="School" />
+                <InputLabel for="affiliation" value="Affiliation" />
+                <select
+                    id="affiliation"
+                    v-model="form.affiliation"
+                    class="mt-1 block w-full border border-gray-300 rounded-md bg-white px-3 py-2 pr-10 focus:outline-none focus:ring focus:border-blue-300"
+                >
+                    <option value="" disabled>Select affiliation</option>
+                    <option value="Agency">Agency</option>
+                    <option value="Organization">Organization</option>
+                    <option value="School">School</option>
+                </select>
+            </div>
+            <div>
+                <InputLabel for="affiliation_name" value="Affiliation Name" />
                 <TextInput
-                    id="school"
-                    v-model="form.school"
-                    required
+                    id="affiliation_name"
+                    v-model="form.affiliation_name"
+                    autocomplete="tel"
                     type="text"
                     class="mt-1 block w-full"
                 />
-                <InputError class="mt-2" :message="form.errors.school" />
+                <InputError class="mt-2" :message="form.errors.affiliation_name"/>
             </div>
+
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton

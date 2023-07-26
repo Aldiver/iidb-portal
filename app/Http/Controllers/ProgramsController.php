@@ -93,4 +93,9 @@ class ProgramsController extends Controller
 
         return Excel::store($export, 'attendees.xlsx');
     }
+    public function landingPage()
+    {
+        $programs = Program::all(); // Fetch all programs from the database
+        return Inertia::render('Welcome', ['programs' => $programs]);
+    }
 }
