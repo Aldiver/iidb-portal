@@ -40,19 +40,19 @@ export default {
         title: 'DICT Interns',
         description: '“DICT of the people and for the people.”',
         image: bannerImage1,
-        link: '/special-sale',
+        link: '/programs/index',
       },
       {
-        title: 'I love DICT',
-        description: '“DICT of the people and for the people.”',
+        title: 'Passionate about Technology? Join Us!',
+        description: 'Explore Opportunities to Make a Difference in ICT.',
         image: bannerImage2,
-        link: '/new-arrivals',
+        link: '/register',
       },
       {
-        title: 'DICT Cares',
-        description: '“DICT of the people and for the people.”',
+        title: 'Discover More with DICT Services',
+        description: 'Login to Access Exclusive Resources and Features.',
         image: bannerImage3,
-        link: '/new-arrivals',
+        link: '/login',
       },
       // Add more banner items as needed
     ]);

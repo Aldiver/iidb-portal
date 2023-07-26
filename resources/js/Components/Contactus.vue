@@ -3,22 +3,25 @@
       <div class="mb-10 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12 md:px-3 lg:px-6">
         <h2 class="mb-6 text-3xl font-bold">Contact us</h2>
         <p class="mb-6 text-neutral-500 dark:text-neutral-300">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Laudantium, modi accusantium ipsum corporis quia asperiores
-          dolorem nisi corrupti eveniet dolores ad maiores repellendus enim
-          autem omnis fugiat perspiciatis? Ad, veritatis.
+          We welcome your feedback, inquiries, and suggestions at DICT. As an organization committed to serving the people, we value your input and strive to improve our services based on your needs. Feel free to reach out to us through the contact details provided below:
         </p>
         <p class="mb-2 text-neutral-500 dark:text-neutral-300">
-          New York, 94126, United States
+          W33G+FC4, Zamboanga, Zamboanga del Sur
         </p>
         <p class="mb-2 text-neutral-500 dark:text-neutral-300">
-          + 01 234 567 89
+        + (062) 991 2742
         </p>
         <p class="mb-2 text-neutral-500 dark:text-neutral-300">
-          info@gmail.com
-        </p>
+          training.region9basulta@dict.gov.ph
+          </p>
+          <p class="mt-6 my-3 text-neutral-500 dark:text-neutral-300">
+            "DICT of the people and for the people."
+          </p>
+          <p class="mb-6 text-neutral-500 dark:text-neutral-300">
+            Thank you for being a part of our journey towards a more connected and technologically advanced nation. Your support and engagement drive us to work harder in shaping the future of digital innovation in the Philippines. We look forward to hearing from you and working together to create a better digital environment for all.
+          </p>
       </div>
-      <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12 md:px-3 lg:px-6">
+      <div class="mt-16 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12 md:px-3 lg:px-6">
         <form>
           <div class="relative mb-6" data-te-input-wrapper-init>
             <input type="text"

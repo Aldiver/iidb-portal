@@ -46,6 +46,10 @@ Route::get('/export-attendees', [AttendanceSheetController::class, 'exportAttend
 
 Route::get('attendancesheet/{program}', [AttendancesheetController::class, 'show'])->name('attendancesheet.show');
 Route::get('attendancesheet/register/{program}', [AttendanceSheetController::class, 'register'])->name('attendancesheet.register');
+Route::get('attendancesheet/{attendees}/edit', [AttendanceSheetController::class, 'edit'])->name('attendancesheet.edit');
+Route::post('/attendancesheet/{attendees}/update', [AttendanceSheetController::class, 'update'])
+->name('attendancesheet.update');
+
 Route::post('/attendancesheet/{program}/store', [AttendanceSheetController::class, 'store'])
 ->name('attendancesheet.store');
 

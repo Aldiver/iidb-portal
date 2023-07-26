@@ -37,12 +37,13 @@ class AttendanceSheetController extends Controller
             'gender' => 'required',
             'email' => 'nullable|email',
             'contact_number' => 'nullable',
-            'school' => 'required',
+            'affiliation' => 'nullable',
+            'affiliation_name' => 'nullable',
         ];
-        // dd($program);
-        $data = $request->validate($rules);
+        $data = $request->validate($rules); 
 
         $attendee = $program->attendees()->create($data);
+
 
         // Redirect or perform any other action after storing the attendee
 
@@ -53,7 +54,7 @@ class AttendanceSheetController extends Controller
     {
         $program = Program::findOrFail($id);
         $program->load('attendees'); // Eager load the attendees relationship
-
+        
         return Inertia::render('AttendanceSheet/Show', [
             'program' => $program,
         ]);
@@ -61,10 +62,32 @@ class AttendanceSheetController extends Controller
 
     public function edit(Program $program)
     {
+        return Inertia::render('AttendanceSheet/Edit', [
+            'program' => $program,
+        ]);
     }
 
     public function update(Request $request, Program $program)
-    {
+    {   
+                // Validation rules for the attendee data
+                $rules = [
+                    'first_name' => 'required',
+                    'last_name' => 'required',
+                    'middle_name' => 'nullable',
+                    'gender' => 'required',
+                    'email' => 'nullable|email',
+                    'contact_number' => 'nullable',
+                    'affiliation' => 'nullable',
+                    'affiliation_name' => 'nullable',
+                ];
+                $data = $request->validate($rules); 
+        
+                $attendee = $program->attendees()->update($data);
+        
+        
+                // Redirect or perform any other action after storing the attendee
+        
+                return redirect()->route('attendancesheet.show', ['program' => $program->id]);
     }
 
     public function destroy(Program $program)

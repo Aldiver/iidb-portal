@@ -23,9 +23,10 @@ const form = useForm({
     affiliation_name: "",
     affiliation: "",
 });
+console.log('program props: ', props);
 
 const submit = () => {
-    form.post(route("attendancesheet.store", { program: props.program }), {
+    form.post(route("attendancesheet.update", { program: props.program }), {
         onSuccess: () => {
             form.reset();
         },

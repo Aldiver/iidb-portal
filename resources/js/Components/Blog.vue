@@ -23,12 +23,12 @@
           {
             title: 'Basic Digital Literacy Training for PWDS',
             imageUrl: bannerImage1,
-            excerpt: 'This initiative was made possible in partnership with the City Social Welfare and Development Office (CSWDO)  Dipolog Tech4Ed Center and the LGU of Dipolog in celebration of the 𝟰𝟱𝘁𝗵 𝗡𝗮𝘁𝗶𝗼𝗻𝗮𝗹 𝗗𝗶𝘀𝗮𝗯𝗶𝗹𝗶𝘁𝘆 𝗣𝗿𝗲𝘃𝗲𝗻𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗥𝗲𝗵𝗮𝗯𝗶𝗹𝗶𝘁𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 with the theme, “Persons with Disabilities Accessibility and Rights: Towards a Sustainable Future where No One is Left Behind” (“Aksesibilidad at Karapatan ng mga Taong may Kapansanan: Daan Tungo sa Sustenablang Kinabukasan? na Walang Maiiwan”).',
+            excerpt: 'This initiative was made possible in partnership with the City Social Welfare and Development Office (CSWDO)  Dipolog Tech4Ed Center and the LGU of Dipolog in celebration of the 𝟰𝟱𝘁𝗵 𝗡𝗮𝘁𝗶𝗼𝗻𝗮𝗹 𝗗𝗶𝘀𝗮𝗯𝗶𝗹𝗶𝘁𝘆 𝗣𝗿𝗲𝘃𝗲𝗻𝘁𝗶𝗼𝗻 𝗮𝗻𝗱 𝗥𝗲𝗵𝗮𝗯𝗶𝗹𝗶𝘁𝗮𝘁𝗶𝗼𝗻 𝗪𝗲𝗲𝗸 with the theme, “Persons with Disabilities Accessibility and Rights: Towards a Sustainable Future where No One is Left Behind”.',
           },
           {
             title: 'SCALE 2023 is here in Jolo, Sulu!',
             imageUrl: bannerImage2,
-            excerpt: 'Startup Community and Locale Enhancement (SCALE) is DICT’s project offering for the Mapping of the Philippine Startup Ecosystem. It is a collaborative and participatory data-gathering method that explores the current startup initiatives, needs, and availability of resources in a certain location through a guided discussion with a multi-sectoral and well-represented set of participants. Mapping participants can vary from members of the local government units, academe, national government agencies, startup founders, enablers, and other key ecosystem players. ',
+            excerpt: 'Startup Community and Locale Enhancement (SCALE) is DICT’s project offering for the Mapping of the Philippine Startup Ecosystem. It is a collaborative and participatory data-gathering method that explores the current startup initiatives, needs, and availability of resources in a certain location through a guided discussion with a multi-sectoral and well-represented set of participants.',
           },
           {
             title: '5th Adobe Community Expert in the Philippines',
