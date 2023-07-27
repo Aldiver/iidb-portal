@@ -17,7 +17,9 @@ class Attendee extends Model
         'gender',
         'email',
         'contact_number',
-        'school',
+        'institution',
+        'school',   
+        
     ];
 
     public function program()

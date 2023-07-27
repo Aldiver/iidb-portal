@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\ProgramsController; // Import the Controller class
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Program;
 use Illuminate\Http\Request;
@@ -37,13 +38,13 @@ class AttendanceSheetController extends Controller
             'gender' => 'required',
             'email' => 'nullable|email',
             'contact_number' => 'nullable',
+            'institution' => 'required',
             'school' => 'required',
         ];
         // dd($program);
         $data = $request->validate($rules);
 
         $attendee = $program->attendees()->create($data);
-
         // Redirect or perform any other action after storing the attendee
 
         return redirect()->route('attendancesheet.show', ['program' => $program->id]);
@@ -59,15 +60,44 @@ class AttendanceSheetController extends Controller
         ]);
     }
 
-    public function edit(Program $program)
+    public function edit(Program $program, Attendee $attendee)
     {
+        // Pass the old input values as props to the Vue component
+        return Inertia::render('AttendanceSheet/Edit', [
+            'program' => $program,
+            'attendee' => $attendee,
+            'oldInput' => old(),
+        ]);
     }
-
-    public function update(Request $request, Program $program)
+    
+        
+    
+     public function update(Request $request, Program $program, Attendee $attendee)
+    {   
+        // Validation rules for the attendee data
+        $rules = [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'middle_name' => 'nullable',
+            'gender' => 'required',
+            'email' => 'nullable|email',
+            'contact_number' => 'nullable',
+            'affiliation' => 'nullable',
+            'affiliation_name' => 'nullable',
+        ];
+        $data = $request->validate($rules); 
+    
+        // Update the specific attendee with the validated data
+        $attendee->update($data);
+    
+        // Redirect or perform any other action after updating the attendee
+        return redirect()->route('attendancesheet.show', ['program' => $program->id]);
+    }
+    public function destroy(Program $program, Attendee $attendee)
     {
+        $attendee->delete();
+    
+        Route::get('/programs/{program}', [ProgramsController::class, 'show'])
+        ->name('program.show');
     }
-
-    public function destroy(Program $program)
-    {
-    }
-}
+} 

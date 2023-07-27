@@ -3,6 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendanceSheetController;
+use App\Http\Controllers\ProgramsController;
+
 use Inertia\Inertia;
 
 /*
@@ -44,8 +46,18 @@ Route::get('/export-attendees', [AttendanceSheetController::class, 'exportAttend
 
 Route::get('attendancesheet/{program}', [AttendancesheetController::class, 'show'])->name('attendancesheet.show');
 Route::get('attendancesheet/register/{program}', [AttendanceSheetController::class, 'register'])->name('attendancesheet.register');
+Route::get('attendancesheet/edit/{program}/{attendee}', [AttendanceSheetController::class, 'edit'])->name('attendancesheet.edit');
+Route::post('/attendancesheet/{program}/{attendee}/update', [AttendanceSheetController::class, 'update'])
+    ->name('attendancesheet.update');
+
 Route::post('/attendancesheet/{program}/store', [AttendanceSheetController::class, 'store'])
 ->name('attendancesheet.store');
 
-Route::get('/programs/{programs}/export-csv', [ProgramsController::class, 'exportCsv'])->name('programs.exportCsv');
+Route::get('/programs/{program}', [ProgramController::class, 'show'])
+    ->name('program.show');
 
+
+
+Route::delete('/attendancesheet/{program}/{attendee}/destroy', [AttendanceSheetController::class, 'destroy'])->name('attendancesheet.destroy');
+
+Route::get('/programs/{programs}/export-csv', [ProgramsController::class, 'exportCsv'])->name('programs.exportCsv');

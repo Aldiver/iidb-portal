@@ -18,6 +18,7 @@ return new class () extends Migration {
             $table->string('gender');
             $table->string('email')->nullable();
             $table->string('contact_number')->nullable();
+            $table->string('institution');
             $table->string('school');
             $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
             $table->timestamps();

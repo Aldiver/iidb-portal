@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from "vue";
+import { useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
     program: {
@@ -7,6 +8,14 @@ const props = defineProps({
         default: () => ({}),
     },
 });
+const formDelete = useForm({
+    
+});
+const deleteProgram = (programId, attendeeId) => {
+    if (confirm("Are you sure you want to delete?")){
+        formDelete.delete(route("attendancesheet.destroy", { program: programId, attendee: attendeeId }));
+    }
+};
 
 const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
@@ -24,39 +33,44 @@ const formatDate = (dateString) => {
                 <div class="px-4 py-5 sm:p-6">
                     <h2 class="font-bold text-4xl">{{ program.name }}</h2>
                     <p>
-                        {{ program.venue }},
+                        {{ program.venue }},S
                         {{ formatDate(program.created_at) }}
                     </p>
                 </div>
                 <hr />
-                <div class="px-4 py-5 sm:p-6">
+                <div class="px-3 py-4 sm:p-6">
                     <!-- <h4 class="font-bold text-md mb-2">Attendees</h4> -->
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50 dark:bg-gray-700">
                             <tr>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
                                 >
                                     Name
                                 </th>
 
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
                                 >
-                                    School
+                                    Affiliation
                                 </th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                >
+                                    Institution
+                                </th>
+                                <th
+                                    class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
                                 >
                                     Gender
                                 </th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
                                 >
                                     Email
                                 </th>
                                 <th
-                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
+                                    class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider"
                                 >
                                     Contact Number
                                 </th>
@@ -69,23 +83,33 @@ const formatDate = (dateString) => {
                                 v-for="attendee in program.attendees"
                                 :key="attendee.id"
                             >
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-2 py-1 whitespace-nowrap">
                                     {{ attendee.last_name }},
                                     {{ attendee.first_name }}
                                     {{ attendee.middle_name }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-2 py-1 whitespace-nowrap">
+                                    {{ attendee.institution }}
+                                </td>
+                                <td class="px-2 py-1 whitespace-nowrap">
                                     {{ attendee.school }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-2 py-1 whitespace-nowrap">
                                     {{ attendee.gender }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-2 py-1 whitespace-nowrap">
                                     {{ attendee.email }}
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td class="px-2 py-1 whitespace-nowrap">
                                     {{ attendee.contact_number }}
                                 </td>
+                                <td class="px-2 py-1 whitespace-nowrap">
+                                    <button @click="deleteProgram(program.id, attendee.id)">
+                                     Delete</button>
+                                </td>
+                                    <td class="px-2 py-1 whitespace-nowrap">
+                                    <button @click="editProgram(program.id)" class="px-2 py-1 bg-gray-800 text-white rounded-lg hover:bg-gray-600">Edit</button>
+                                    </td>
                             </tr>
                         </tbody>
                     </table>

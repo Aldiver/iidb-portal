@@ -2,7 +2,9 @@
 import { Head, Link } from "@inertiajs/vue3";
 import Navbar1 from "@/Components/Navbar1.vue";
 import Slides from "@/Components/Slides.vue";
-import Avatar from "@/Components/Avatar.vue";
+import Youtube from "@/Components/Youtube.vue";
+import SocialProof from "@/Components/SocialProof.vue";
+import ContactUs from "@/Components/ContactUs.vue";
 
 defineProps({
     canLogin: Boolean,
@@ -12,13 +14,9 @@ defineProps({
 });
 </script>
 <template>
+    
     <Head title="Welcome" />
     <Navbar1 />
-    <Slides />
-    <Avatar />
-    
-
-
     <div class="bg-white-100 text-blue-900 min-h-screen flex flex-col">
     <div class="max-w w-full">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 text-center">
@@ -27,7 +25,6 @@ defineProps({
   <span class="brand-font-medium text-blue-tf leading-relaxed md:leading-14 lg:leading-15"></span>
 </h1>                
 </h1>
-    
                 <p class="text-center">
                     Attendance Management System
                 </p>
@@ -42,17 +39,14 @@ defineProps({
                         >Dashboard</Link
                     >
                     <template v-else>
-                        <Link
-    v-if="canRegister"
-    :href="route('login')"
-    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 mb-0 px-4 rounded mr-0 flex justify-center"
-    >Login</Link>
-
-                        <Link
-    v-if="canRegister"
-    :href="route('register')"
-    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 mb-8 px-4 rounded mr-0 flex justify-center"
-    >Register</Link>
+        <div>
+            <Slides />
+            <div class="grid grid-cols-2 mx-20 my-20">
+                <Youtube />             
+                <ContactUs />  
+            </div>
+            <SocialProof />
+        </div>
                     </template>
                 </div>  
             </div>

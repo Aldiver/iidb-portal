@@ -4,7 +4,7 @@ import AppLayout from "@/Layouts/AppLayout.vue";
 import CreateModal from "./CreateModal.vue";
 import QRModal from "./QRModal.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import { Link } from "@inertiajs/vue3";
+import { Link, useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
     programs: {
@@ -30,6 +30,12 @@ const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString(undefined, options);
 };
+const formDelete = useForm({});
+const deleteProgram = (id) => {
+    if (confirm("Are you sure you want to delete?")){
+        formDelete.delete(route("programs.destroy",id))
+    }
+}
 </script>
 
 <template>
@@ -38,7 +44,7 @@ const formatDate = (dateString) => {
             <h2
                 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight"
             >
-                Hello World
+                HELLO WOLRD
             </h2>
         </template>
 

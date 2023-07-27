@@ -21,6 +21,7 @@ const form = useForm({
     email: "",
     contact_number: "",
     school: "",
+    institution:"",
 });
 
 const submit = () => {
@@ -82,17 +83,14 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="gender" value="Gender" />
-                <TextInput
-                    id="gender"
-                    v-model="form.gender"
-                    required
-                    autocomplete="sex"
-                    type="text"
-                    class="mt-1 block w-full"
-                />
-                <InputError class="mt-2" :message="form.errors.gender" />
-            </div>
+    <InputLabel for="gender" value="Gender" />
+    <select id="gender" v-model="form.gender" required class="mt-1 block w-full">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Prefare not to say</option>
+    </select>
+    <InputError class="mt-2" :message="form.errors.gender" />
+</div>
 
             <div>
                 <InputLabel for="email" value="Email Address" />
@@ -122,16 +120,26 @@ const submit = () => {
             </div>
 
             <div>
-                <InputLabel for="school" value="School" />
-                <TextInput
-                    id="school"
-                    v-model="form.school"
-                    required
-                    type="text"
-                    class="mt-1 block w-full"
-                />
-                <InputError class="mt-2" :message="form.errors.school" />
-            </div>
+    <InputLabel for="institution" value="Please choose Affiliation" />
+    <select v-model="form.institution" required class="mt-1 block w-full">
+        
+        <option value="Org">Organization</option>
+        <option value="Agency">Agency</option>
+        <option value="School">School</option>
+    </select>
+    <InputError class="mt-2" :message="form.errors.institution" />
+</div>
+    <!-- Text Input for School -->
+    <TextInput
+        id="school"
+        v-model="form.school"
+        required
+        type="text"
+        class="mt-1 block w-full"
+    />
+    <InputError class="mt-2" :message="form.errors.school" />
+
+    <!-- Dropdown for Institution Type -->
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton
